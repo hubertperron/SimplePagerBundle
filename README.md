@@ -26,7 +26,7 @@ How to install it
 	// app/autoload.php
 	$loader->registerNamespaces(array(
 		// ...
-		'Ideato'           => __DIR__.'/../vendor',
+		'Ideato'           => __DIR__.'/../vendor/bundles',
 	));
 
 
