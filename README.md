@@ -30,6 +30,14 @@ How to install it
 	));
 
 
+## No autoloading of the service at the moment:
+
+        //app/config.yml
+        imports:
+            //imports...
+            - { resource: "@IdeatoSimplePagerBundle/Resources/config/services.xml" }
+        
+
 How to use it
 --------------
 
