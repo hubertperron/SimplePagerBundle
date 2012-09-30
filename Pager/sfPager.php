@@ -285,7 +285,7 @@ abstract class sfPager implements \Iterator, \Countable
    *
    * @param integer $nb
    */
-  protected function setNbResults($nb)
+  public function setNbResults($nb)
   {
     $this->nbResults = $nb;
   }

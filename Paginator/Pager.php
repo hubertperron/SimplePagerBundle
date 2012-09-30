@@ -45,7 +45,7 @@ class Pager extends sfPager
      */
     public function setQuery($query)
     {
-        if (!$query instanceof  $this->query_class)
+        if (!$query instanceof $this->query_class)
         {
             throw new \InvalidArgumentException('The given query is not ad instance of '.$this->query_class.',  but '.  \get_class($query));
         }
@@ -60,7 +60,7 @@ class Pager extends sfPager
 
     /**
      * 1. Checks if the query has been set.
-     * 2. Retrieves the actual page resutls
+     * 2. Retrieves the actual page results
      * 3. Sets the results total number
      * 4. Calculate and sets the last page
      */
@@ -71,11 +71,13 @@ class Pager extends sfPager
             throw new \Exception('You must specify a query');
         }
 
-        
         $this->getResults();
-        $nb_results = count($this->cloneQuery()->getResult($this->getScalarHydrationValue()));
 
-        $this->setNbResults($nb_results);
+        if (false == $this->nbResults) {
+            $nb_results = count($this->cloneQuery()->getResult($this->getScalarHydrationValue()));
+            $this->setNbResults($nb_results);
+        }
+
         $this->setLastPage(ceil($this->nbResults / $this->maxPerPage));
     }
 
